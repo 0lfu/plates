@@ -1,0 +1,804 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&family=Satisfy&display=swap");
+:root {
+  --orange: #fe750b;
+  --blue: #55baac;
+  --yellow: #f7e157;
+  --green: #63a96f;
+  --pink: #ffdeea;
+  --tuna: #fa8869;
+  /* var(--white) */
+}
+* {
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.section {
+  width: 100%;
+  padding: 60px;
+}
+.mobile {
+  display: none !important;
+}
+/* navbar */
+.navbar {
+  overflow: hidden;
+  background-color: #ffffff;
+  padding: 0 !important;
+  transition: 0.4s;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 1px 19px -12px rgba(66, 68, 90, 1);
+}
+.navbar-minimized {
+  height: 64px;
+}
+.navbar-maximized {
+  height: 128px;
+}
+.navbar .navbar-section {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  margin: 0 10px;
+}
+#navbar-contact a {
+  font-size: 28px;
+}
+.navbar #navbar-contact a:nth-child(1) {
+  color: var(--tuna);
+}
+.navbar #navbar-contact a:nth-child(2) {
+  color: #4267b2;
+}
+.navbar #navbar-contact a:nth-child(3) {
+  color: #c13584;
+}
+.navbar #logo {
+  height: 100%;
+  padding: 0 !important;
+  margin: 0 10px;
+}
+.navbar #logo img {
+  height: 100%;
+}
+
+.navbar a {
+  color: black;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 20px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar a:hover {
+  color: #6d6d6d;
+}
+
+.navbar a.active {
+  position: relative;
+}
+.navbar a.active::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--orange);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+/* main */
+.main {
+  margin-top: 64px;
+  height: calc(100vh - 64px);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("resources/5.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  color: #ffffff;
+  font-family: "Satisfy", cursive;
+  font-size: 150px;
+  /* margin-top: 40px; */
+  transform: rotate(-5deg);
+  transition: transform 330ms ease-in-out;
+  user-select: none;
+}
+.title:hover {
+  transform: rotate(-2deg) scale(1.05);
+}
+.subtitle {
+  display: none !important; /* TURN ON/OFF */
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 2px;
+  color: #ffffff;
+  font-size: 28px;
+  transform: rotate(-5deg);
+}
+.subtitle span {
+  font-family: "Satisfy", cursive;
+}
+/* about */
+.about {
+  background-color: var(--blue);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 60px;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+}
+.about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #fa8869;
+  transition: background-color 0.5s ease;
+}
+.about h4 {
+  font-size: 40px;
+}
+.about p {
+  font-size: 15px;
+}
+.about-item {
+  flex: 0 0 calc(40% - 60px);
+  height: 20vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  gap: 20px;
+}
+.about-item-text {
+  width: 50%;
+}
+.about-item-image {
+  width: 50%;
+}
+.about-item:nth-child(odd) .about-item-image img {
+  border: 5px solid var(--tuna);
+}
+.about-item:nth-child(even) .about-item-image img {
+  border: 5px solid var(--blue);
+}
+.about-item-image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* menu */
+.menu {
+  height: auto;
+  background-color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+}
+.menu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 calc(20% - 60px);
+  overflow: hidden;
+  position: relative;
+  background-color: var(--green);
+  padding: 10px;
+}
+.menu-item img {
+  transition: transform 0.3s;
+}
+
+.menu-item:hover img {
+  transform: scale(1.1);
+}
+.info-box {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.menu-item:hover .info-box {
+  display: flex;
+  opacity: 1;
+}
+.menu-item:nth-child(2),
+.menu-item:nth-child(9) {
+  background-color: var(--yellow);
+}
+.menu-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+/* gallery */
+.gallery {
+  padding: 0 !important;
+  height: 50vh;
+  background-color: #63a96f;
+  display: flex;
+  overflow: hidden;
+}
+.gallery ul {
+  display: flex;
+  list-style: none;
+}
+.gallery ul img {
+  width: 100vw;
+  object-fit: cover;
+}
+/* reservation */
+.reservation {
+  background-color: #ffffff;
+  display: flex;
+}
+.reservation-left {
+  flex: 1;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-right: 60px;
+}
+.reservation-right {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.reservation h2 {
+  font-size: 23px;
+}
+.reservation p {
+  font-size: 16px;
+}
+.reservation form {
+  height: 100%;
+  display: flex;
+}
+.reservation form .form-first,
+.reservation form .form-second {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.reservation form .form-second {
+  display: none;
+}
+.reservation form .form-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.reservation form label {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.reservation form input {
+  border: 2px solid var(--green);
+  padding: 10px 20px;
+  font-size: 015px;
+  width: 100%;
+  margin-bottom: 20px;
+  outline: none;
+}
+.reservation form .hours {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.reservation form .hour {
+  background-color: var(--orange);
+  padding: 10px;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+.reservation form .hour:hover {
+  transform: scale(1.05);
+  transition: all 0.1s ease;
+}
+.reservation form .form-next {
+  background-color: var(--green);
+  color: white;
+  padding: 15px;
+  border: none;
+}
+/* map */
+.map {
+  width: 100%;
+  height: 42vh;
+  padding: 0 !important;
+}
+/* contact */
+.contact {
+  padding: 0 !important;
+  width: 100%;
+  height: 15vh;
+  background-color: var(--green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.contact .contact-item {
+  flex: 1;
+  height: 100%;
+  font-size: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.contact .contact-item svg {
+  margin-top: 20px;
+}
+.contact .contact-item p {
+  font-size: 20px;
+  margin-top: 20px;
+}
+.contact-item:nth-child(1) {
+  background-color: var(--yellow);
+}
+.contact-item:nth-child(2) {
+  background-color: var(--blue);
+}
+.contact-item:nth-child(3) {
+  background-color: #4267b2;
+}
+.contact-item:nth-child(4) {
+  background-color: #c13584;
+}
+/* footer */
+.footer {
+  padding: 0 !important;
+  width: 100%;
+  height: 38vh;
+  background-color: #383838;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+}
+.footer a {
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+}
+.footer a::before {
+  content: ""; /* Create an empty pseudo-element */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px; /* Adjust the distance of the underline from the text */
+  background-color: #ffffff; /* Set the underline color */
+  height: 1px; /* Set the height of the underline */
+  transform: scaleX(0); /* Initially, make the underline invisible */
+  transform-origin: left center; /* Start the underline animation from the left */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+.footer a:hover::before {
+  transform: scaleX(1); /* Scale the underline to full width on hover */
+}
+
+.footer-section-wrapper {
+  height: calc(100% - 3vh);
+  width: 100%;
+  display: flex;
+}
+.footer-section {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.footer-section > * {
+  position: relative;
+  left: 30%;
+  top: 30%;
+}
+.footer-section h4 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+.footer-section p {
+  font-size: 16px;
+  line-height: 30px;
+}
+.footer-credits {
+  text-align: center;
+  padding: 20px;
+}
+@media screen and (max-width: 1500px) {
+  .section {
+    padding: 40px;
+  }
+  .navbar-maximized {
+    height: 96px;
+  }
+  #navbar-contact a {
+    font-size: 22px;
+  }
+  .title {
+    font-size: 120px;
+  }
+  .menu {
+    gap: 40px;
+  }
+  .menu-item {
+    flex: 0 0 calc(25% - 40px);
+  }
+  .menu-item:nth-child(3),
+  .menu-item:nth-child(8) {
+    display: none;
+  }
+  .about {
+    gap: 40px;
+  }
+  .about-item {
+    flex: 0 0 calc(50% - 40px);
+  }
+  .about-item-text {
+    width: 60%;
+  }
+  .about-item-image {
+    width: 40%;
+  }
+  .about h4 {
+    font-size: 30px;
+  }
+  .about p {
+    font-size: 14px;
+  }
+  .contact {
+    height: 20vh;
+  }
+  .footer {
+    height: 45vh;
+  }
+  .footer-section > * {
+    left: 20%;
+    top: 20%;
+  }
+}
+@media screen and (max-width: 1366px) {
+  .footer-section > * {
+    left: 10%;
+    top: 10%;
+    padding-left: 20px;
+  }
+  .footer a::before {
+    left: 20px;
+  }
+  .footer-credits {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1070px) {
+  .section {
+    padding: 30px;
+  }
+  .navbar-maximized {
+    height: 64px;
+  }
+  .navbar-minimized {
+    height: 48px;
+  }
+  .navbar a {
+    height: 48px;
+  }
+  .title {
+    font-size: 100px;
+  }
+  .main {
+    margin-top: 40px;
+    height: calc(100vh - 48px);
+  }
+  .menu {
+    gap: 30px;
+  }
+  .menu-item {
+    flex: 0 0 calc(33.33% - 30px);
+  }
+  .menu-item:nth-child(4),
+  .menu-item:nth-child(10) {
+    display: none;
+  }
+  .about {
+    gap: 30px;
+  }
+  .about-item {
+    flex: 0 0 calc(50% - 30px);
+  }
+  .about h4 {
+    font-size: 26px;
+  }
+  .contact {
+    height: 25vh;
+  }
+  .contact .contact-item p {
+    margin-top: 10px;
+  }
+  .footer {
+    height: 55vh;
+  }
+  .footer-section > * {
+    left: 0%;
+  }
+}
+@media screen and (max-width: 870px) {
+  .reservation-left {
+    justify-content: unset;
+  }
+  .map {
+    height: 62vh;
+  }
+  .contact {
+    height: 30vh;
+  }
+  .footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 3px;
+  }
+  .footer-section p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  /* mobile view */
+  .section {
+    padding: 12px;
+  }
+  .mobile {
+    display: flex !important;
+  }
+  .navbar {
+    padding: 0;
+  }
+  .navbar-minimized {
+    height: 40px;
+  }
+  .navbar-maximized {
+    height: 70px;
+  }
+  .mobile-menu {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+  }
+  .navbar .navbar-section {
+    margin: 0 20px;
+  }
+  .navbar #navbar-contact a {
+    font-size: 20px;
+    margin-left: 15px;
+  }
+  .navbar-section.mobile {
+    aspect-ratio: 1 / 1;
+    margin: 0;
+  }
+  .navbar-section:first-child {
+    display: none;
+  }
+  .mobile-menu-content {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 40px);
+    background-color: #ffffff;
+    z-index: 1000;
+    margin-top: 70px;
+  }
+  .mobile-menu-content a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    font-size: 24px;
+  }
+  .mobile-menu-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .main {
+    margin-top: 0;
+    height: 100vh;
+  }
+  .about-item {
+    height: 40vh;
+  }
+  .about-item-text,
+  .about-item-image {
+    width: 50%;
+  }
+  .gallery {
+    height: 60vh;
+  }
+  .reservation-left {
+    align-items: flex-end;
+  }
+  .reservation p {
+    text-align: right;
+  }
+  /* mobile view */
+}
+@media screen and (max-width: 500px) {
+  .mobile-menu-content a {
+    padding: 20px;
+  }
+  .about {
+    padding: 0;
+    gap: 0;
+  }
+  .about-item {
+    padding: 0 12px;
+    flex: 1 0 100%;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+  }
+  .about-item:nth-last-child(-n + 2) {
+    flex-direction: column-reverse;
+    background-color: var(--tuna);
+  }
+  .about-item:nth-child(odd) {
+    padding-top: 16px;
+  }
+  .about-item-text,
+  .about-item-image {
+    width: 100%;
+  }
+  .about h4 {
+    font-size: 36px;
+  }
+  .about p {
+    font-size: 20px;
+  }
+  .about-item:nth-child(even) .about-item-image {
+    margin-bottom: 16px;
+  }
+  .about-item:nth-child(even) .about-item-text h4 {
+    margin-top: 8px;
+  }
+  .about-item:nth-child(-n + 2) .about-item-image img {
+    border: 5px solid var(--tuna);
+  }
+  .about-item:nth-last-child(-n + 2) .about-item-image img {
+    border: 5px solid var(--blue);
+  }
+  .about::before {
+    display: none;
+  }
+  .menu {
+    flex-direction: column;
+    height: auto;
+  }
+  .menu-item {
+    flex: 1;
+  }
+  .menu > * {
+    display: none;
+  }
+  .menu .menu-item:nth-child(-n + 3) {
+    display: flex;
+  }
+  .gallery {
+    height: 70vh;
+    padding: 0;
+  }
+  .gallery img {
+    height: 100%;
+  }
+  .reservation {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .reservation-left,
+  .reservation-right {
+    width: 100%;
+  }
+  .reservation-left {
+    flex: unset;
+    padding: 16px 0 32px 0;
+  }
+  .reservation-left h2 {
+    font-size: 36px;
+  }
+  .reservation-left p {
+    font-size: 20px;
+  }
+  .reservation-left p:last-child {
+    margin-bottom: 20px;
+  }
+  .reservation form label {
+    font-size: 20px;
+  }
+  .reservation form input {
+    font-size: 20px;
+  }
+  .map {
+    padding: 0;
+  }
+  .contact {
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+  }
+  .contact-item {
+    width: 100%;
+  }
+  .contact .contact-item p {
+    margin-bottom: 20px;
+  }
+  .footer {
+    height: auto;
+  }
+  .footer-section-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .footer > * {
+    margin: 20px 0;
+  }
+  .footer-section h4 {
+    font-size: 20px;
+  }
+  .footer-section p {
+    font-size: 14px;
+  }
+  .footer-section > * {
+    left: 10%;
+    top: 10%;
+  }
+}
