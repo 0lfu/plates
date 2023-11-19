@@ -19,7 +19,7 @@ Explore the live version of Plates at [plates.rf.gd](https://plates.rf.gd/).
 - Back-end: PHP
 
 ## License
-Copyright 2023 Olaf Wojda
+Copyright 2023 Olfu
 
 This project is for educational purposes only and is provided as-is, without any express or implied warranty. The author of this project does not grant permission for its use beyond educational purposes.
 
